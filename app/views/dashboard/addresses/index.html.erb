@@ -1,0 +1,35 @@
+<div>
+  <div class="pull-right">
+    <%= link_to "新建发布", new_admin_product_path, class: "btn btn-primary" %>
+  </div>
+
+  <h1>
+    我的发布(<%= @products.total_entries %>)
+  </h1>
+</div>
+
+<div>
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>标题</th>
+      <th>发布人</th>
+    </tr>
+
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td><%= product.title %></td>
+        <td><%= current_user.username %></td>
+        <td align="right">
+          <%= link_to "编辑", edit_admin_product_path(product) %> 
+          <%= link_to "删除", admin_product_path(product), method: :delete, 'data-confirm': "确认删除吗?" %>
+          <%= link_to "图片管理", admin_product_product_images_path(product_id: product) %>
+        </td>
+      </tr>
+    <% end -%>
+  </table>
+
+  <%= will_paginate @products %>
+</div>
+
