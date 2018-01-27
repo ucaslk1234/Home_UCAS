@@ -1,7 +1,7 @@
 
 
 ```shell
-$git clone git@github.com:eggmantv/master_rails_by_actions.git
+$git clone 
 ```
 
 # 项目介绍
